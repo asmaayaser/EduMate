@@ -53,7 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $formErrors[] = 'image extensions is not available';
         }
         $imgx = rand(0, 100000) . '_' . $imgNam;
-        $uploads_dirx = 'uploads';
+        if($choice == 'head'){
+        $uploads_dirx = 'heads/uploads';}
+        if($choice == 'membr'){
+            $uploads_dirx = 'members/uploads';}
         move_uploaded_file($imgTm, "$uploads_dirx/$imgx");
         if (empty($name)) {
             $formErrors[] = 'please entre the name';
